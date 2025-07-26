@@ -1,6 +1,8 @@
 # Toro
 
-Toro Router is a simple router for terminal applications. It is inspired by [TanStack Router](https://tanstack.com/router) and [React Router](https://reactrouter.com/).
+Toro is a simple router for terminal applications. It is inspired by [TanStack Router](https://tanstack.com/router) and [React Router](https://reactrouter.com/).
+
+Toro stands for **T**erminal **O**rchestration and **RO**uting. We suffer from RAS syndrome because the package name `toro` is already taken by a 10-year old package with 0 dependents. Sigh.
 
 ## Installation
 

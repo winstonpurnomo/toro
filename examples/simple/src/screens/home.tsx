@@ -8,7 +8,11 @@ export default function Home() {
   const [value, setValue] = useState('');
   return (
     <Box>
-      <TextInput value={value} onChange={setValue} onSubmit={() => navigate({ to: 'about', params: { name: "Bob" } })} />
+      <TextInput
+        onChange={setValue}
+        onSubmit={() => navigate({ to: 'about', params: { name: 'Bob' } })}
+        value={value}
+      />
     </Box>
   );
 }

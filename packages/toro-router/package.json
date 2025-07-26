@@ -11,9 +11,15 @@
     "terminal",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winston-purnomo/toro.git",
+    "directory": "packages/toro-router"
+  },
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "test": "vitest"
   },
   "type": "module",
   "main": "./dist/index.cjs",
@@ -30,11 +36,15 @@
     "dist"
   ],
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.8",
+    "jsdom": "^26.1.0",
     "react": "^19.1.0",
     "tsdown": "^0.13.0",
     "typescript": "5.8.3",
+    "vitest": "^3.2.4",
     "zod": "^4.0.10"
   },
   "peerDependencies": {
