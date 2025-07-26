@@ -1,0 +1,59 @@
+{
+  "name": "simple",
+  "version": "0.0.0",
+  "license": "MIT",
+  "bin": "dist/cli.js",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "prettier --check . && xo && ava"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "fullscreen-ink": "^0.1.0",
+    "ink": "^6.0.1",
+    "ink-text-input": "^6.0.0",
+    "meow": "^13.2.0",
+    "react": "^19.1.0",
+    "toro-router": "workspace:*",
+    "zod": "^4.0.10"
+  },
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^7.0.0",
+    "@types/react": "^19.1.8",
+    "@vdemedes/prettier-config": "^2.0.1",
+    "ava": "^6.4.1",
+    "chalk": "^5.4.1",
+    "eslint-config-xo-react": "^0.28.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "ink-testing-library": "^4.0.0",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "xo": "^1.2.1"
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module",
+      "tsx": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm"
+    ]
+  },
+  "xo": {
+    "extends": "xo-react",
+    "prettier": true,
+    "rules": {
+      "react/prop-types": "off"
+    }
+  },
+  "prettier": "@vdemedes/prettier-config"
+}

@@ -1,0 +1,14 @@
+import { Box } from 'ink';
+import TextInput from 'ink-text-input';
+import { useState } from 'react';
+import { useNavigate } from 'toro-router';
+
+export default function Home() {
+  const navigate = useNavigate();
+  const [value, setValue] = useState('');
+  return (
+    <Box>
+      <TextInput value={value} onChange={setValue} onSubmit={() => navigate({ to: 'about', params: { name: "Bob" } })} />
+    </Box>
+  );
+}
