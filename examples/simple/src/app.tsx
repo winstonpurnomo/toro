@@ -1,20 +1,34 @@
+import { FullScreenBox } from 'fullscreen-ink';
 import { Box, Text } from 'ink';
-import { createRouter, RouterOutlet, RouterProvider } from 'toro-router';
+import {
+  createRouter,
+  Outlet,
+  RouterOutlet,
+  RouterProvider,
+} from 'toro-router';
 import z4 from 'zod/v4';
 import Home from './screens/home.js';
 
 const router = createRouter({
   routes: [
     {
-      key: 'home',
+      key: '/h',
       component: () => (
-        <Box margin={1}>
+        <FullScreenBox borderStyle="bold" flexDirection="column" margin={1}>
+          <Outlet />
+        </FullScreenBox>
+      ),
+    },
+    {
+      key: '/h/home',
+      component: () => (
+        <Box borderStyle="single" margin={1}>
           <Home />
         </Box>
       ),
     },
     {
-      key: 'about',
+      key: '/h/about',
       args: z4.object({
         name: z4.string().optional(),
       }),
@@ -27,7 +41,7 @@ const router = createRouter({
       ),
     },
   ],
-  initialRoute: 'home',
+  initialRoute: '/h/home',
 });
 
 export default function App() {

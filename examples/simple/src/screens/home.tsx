@@ -10,7 +10,7 @@ export default function Home() {
     <Box>
       <TextInput
         onChange={setValue}
-        onSubmit={() => navigate({ to: 'about', params: { name: 'Bob' } })}
+        onSubmit={() => navigate({ to: '/h/about', params: { name: 'Bob' } })}
         value={value}
       />
     </Box>

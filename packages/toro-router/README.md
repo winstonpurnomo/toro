@@ -28,7 +28,15 @@ export default function Home() {
   const [value, setValue] = useState('');
   return (
     <Box>
-      <TextInput value={value} onChange={setValue} onSubmit={() => navigate({ to: 'about', params: { name: "Bob" } })} />
+      <TextInput 
+        value={value} 
+        onChange={setValue} 
+        onSubmit={
+          () => navigate({ 
+            to: 'about', 
+            params: { name: "Bob" } 
+          })
+        } />
     </Box>
   );
 }
@@ -42,16 +50,34 @@ import { Box, Text } from 'ink';
 const router = createRouter({
   routes: [
     {
-      key: 'home',
-      component: () => <Box margin={1}><Home /></Box>,
+      key: '/root',
+      component: () => (
+        <Box flexGrow={1} flexDirection="column" margin={1}>
+          <Outlet />
+        </Box>
+      ),
     },
     {
-      key: 'about',
+      key: '/root/home',
+      component: () => (
+        <Box borderStyle="single" margin={1}>
+          <Home />
+        </Box>
+      ),
+    },
+    {
+      key: '/root/about',
       args: z4.object({
         name: z4.string().optional(),
       }),
-      component: ({ name }) => <Box margin={1}><Text>Hello, <Text color="blue">{name}</Text></Text></Box>,
-    },
+      component: ({ name }) => (
+        <Box margin={1}>
+          <Text>
+            Hello, <Text color="blue">{name}</Text>
+          </Text>
+        </Box>
+      ),
+    }
   ],
   initialRoute: 'home',
 });
@@ -66,7 +92,7 @@ export default function App() {
 ```
 
 ## TODOs
-- [ ] Add support for layout components
 - [ ] More stringent type-safety
+- [ ] Expand to accept Standard Schema for route args
 - [ ] Add unit tests
-- [ ] Add CI/CD to lint, test and publish
+- [ ] Add CI/CD to publish
