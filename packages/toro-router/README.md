@@ -33,7 +33,7 @@ export default function Home() {
         onChange={setValue} 
         onSubmit={
           () => navigate({ 
-            to: 'about', 
+            to: '/root/about',
             params: { name: "Bob" } 
           })
         } />
@@ -79,7 +79,7 @@ const router = createRouter({
       ),
     }
   ],
-  initialRoute: 'home',
+  initialRoute: '/root/home',
 });
 
 export default function App() {
